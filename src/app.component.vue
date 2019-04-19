@@ -5,7 +5,7 @@
         <side-navigation/>
       </el-aside>
       <el-main>
-        <router-view></router-view><dashboard-page v-if="isLogIn"/>
+        <router-view></router-view>
       </el-main>
     </el-container>
   </div>

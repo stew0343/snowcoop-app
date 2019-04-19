@@ -18,10 +18,12 @@ Vue.use(ElementUI);
 Vue.use(VueForm);
 Vue.use(VueGoogleMaps, {
   load: {
-    key: 'process.env.VUE_APP_GOOGLE_API_KEY', libraries: 'places'}
+    key: 'process.env.VUE_APP_GOOGLE_API_KEY',
+    libraries: 'places'
+  }
   });
-/* eslint-disable */
-console.log(process.env.VUE_APP_GOOGLE_API_KEY)
+
+Vue.router = router;
 
 new Vue({
   router,
