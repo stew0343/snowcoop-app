@@ -1,0 +1,33 @@
+.map-view-wrapper {
+    display:flex;
+    flex-direction:row;
+}
+
+.map-wrapper {
+    width:100%;
+}
+
+.address-list-wrapper {
+    min-width: fit-content;
+    overflow-y:scroll;
+}
+
+.address-item {
+    padding: 8px 10px;
+    cursor:pointer;
+}
+
+.address-item:hover, .current-place {
+    background-color: #a4d4f6;
+    color:white;
+}
+
+.submit-button {
+    font-size: 18px;
+    border-radius: 4px;
+    padding:10px 20px;
+    font-weight: bold;
+    background-color: #1974e8;
+    color: white;
+    border: none;
+}
