@@ -18,22 +18,22 @@
                         </el-form-item>
                         <div v-if="place">
                             <el-form-item :rules="rules.street" prop="street">
-                                <el-input placeholder="Street" v-model="formDate.street" :disabled="true"></el-input>
+                                <el-input placeholder="Street" v-model="formData.street" :disabled="true"></el-input>
                             </el-form-item>
                             <el-form-item :rules="rules.city" prop="city">
-                                <el-input placeholder="City" v-model="formDate.city" :disabled="true"></el-input>
+                                <el-input placeholder="City" v-model="formData.city" :disabled="true"></el-input>
                             </el-form-item>
                             <el-form-item :rules="rules.province" prop="province">
-                                <el-input placeholder="Province" v-model="formDate.province" :disabled="true"></el-input>
+                                <el-input placeholder="Province" v-model="formData.province" :disabled="true"></el-input>
                             </el-form-item>
                             <el-form-item :rules="rules.postalCode" prop="postalCode">
-                                <el-input placeholder="Postal Code" v-model="formDate.street" :disabled="true"></el-input>
+                                <el-input placeholder="Postal Code" v-model="formData.street" :disabled="true"></el-input>
                             </el-form-item>
                             <el-form-item :rules="rules.lat" prop="lat">
-                                <el-input placeholder="Latitude" v-model="formDate.lat" :disabled="true"></el-input>
+                                <el-input placeholder="Latitude" v-model="formData.lat" :disabled="true"></el-input>
                             </el-form-item>
                             <el-form-item :rules="rules.lng" prop="lng">
-                                <el-input placeholder="Longitude" v-model="formDate.lng" :disabled="true"></el-input>
+                                <el-input placeholder="Longitude" v-model="formData.lng" :disabled="true"></el-input>
                             </el-form-item>
                         </div>
                     </el-form>

@@ -15,8 +15,7 @@ const AddressService = {
     });
   },
   addAddress(payload) {
-    return Axios.post('http://localhost:3000/address', payload).then(
-      async response => {
+    return Axios.post('http://localhost:3000/address', payload).then(async response => {
         if (response.status === 200 || response.status === 201) {
           const { payload } = response.data;
           payload.lat = Number(payload.lat);

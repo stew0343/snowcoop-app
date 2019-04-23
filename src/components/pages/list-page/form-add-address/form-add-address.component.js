@@ -26,6 +26,8 @@ export default {
     },
     methods: {
         updateIsFormValidated() {
+            /*eslint-disable*/
+            console.log('updateIsFormValidated ran succesfully');
             const fields = this.$refs.formData.fields;
             this.isFormValidated = fields.reduce((acc, field) => {
                 const valid = field.isRequired && field.validateState === 'success';
@@ -34,6 +36,8 @@ export default {
             }, true);
         },
         submit() {
+            console.log(this.isFormValidated);
+            
             if (this.isFormValidated) {
                 const address = {
                     street: this.formData.street,
@@ -41,18 +45,17 @@ export default {
                     province: this.formData.province,
                     postalCode: this.formData.postalCode,
                     lat: this.formData.lat,
-                    lng: this.forEach.lng
+                    lng: this.formData.lng
                 };
                 this.$store
-                    .dispatch("ADD_ADDRESS", address)
+                    .dispatch("ADD_NEW_ADDRESS", address)
                     .then(
                         address => this.onAddAddressSuccessful(address),
                         error => this.onAddAddressFailed(error)
                     );
             }
-            // this.$store.dispatch("ADD_ADDRESS", this.formData).then(address => {
-            //     this.toggleForm(false);
-            // });
+            console.log('submit button pressed');
+            console.log(this.isFormValidated);
         },
         onAddAddressSuccessful(address) {
             if (address) {
@@ -67,13 +70,20 @@ export default {
         toggleForm(showForm) {
             this.showForm = showForm;
         },
+        handleClose() {
+            this.place = null;
+            this.formData.street = null;
+            this.formData.city = null;
+            this.formData.province = null;
+            this.formData.postalCode = null;
+            this.formData.lat = null;
+            this.formData.lng = null;
+            this.addressInput = null;
+        },
         setPlace(place) {
-            /*eslint-disable*/
-            console.log(place);
             const { address_components, geometry } = place;
             const address = this.buildAddressData(address_components, geometry);
-            console.log(address);
-
+            
             if (address) {
                 this.place = address;
                 this.formData.street = `${address.streetNumber} ${address.streetName}`;
@@ -83,6 +93,7 @@ export default {
                 this.formData.lat = address.lat;
                 this.formData.lng = address.lng;
             }
+            this.updateIsFormValidated();
         },
         buildAddressData(components, geometry) {
             const address = {};
